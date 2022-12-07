@@ -1,0 +1,5 @@
+*
+!*.py
+!*.sql
+!Dockerfile
+!requirements.txt
