@@ -1,0 +1,459 @@
+[
+    {
+        "schema": {
+            "type": "struct",
+            "fields": [
+                {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "type": "int32",
+                            "optional": false,
+                            "default": 0,
+                            "field": "id"
+                        },
+                        {
+                            "type": "int32",
+                            "optional": true,
+                            "name": "io.debezium.time.Date",
+                            "version": 1,
+                            "field": "login_date"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "first_name"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "last_name"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "address"
+                        },
+                        {
+                            "type": "boolean",
+                            "optional": true,
+                            "field": "active"
+                        }
+                    ],
+                    "optional": true,
+                    "name": "debeziumconn.public.person_identity.Value",
+                    "field": "before"
+                },
+                {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "type": "int32",
+                            "optional": false,
+                            "default": 0,
+                            "field": "id"
+                        },
+                        {
+                            "type": "int32",
+                            "optional": true,
+                            "name": "io.debezium.time.Date",
+                            "version": 1,
+                            "field": "login_date"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "first_name"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "last_name"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "address"
+                        },
+                        {
+                            "type": "boolean",
+                            "optional": true,
+                            "field": "active"
+                        }
+                    ],
+                    "optional": true,
+                    "name": "debeziumconn.public.person_identity.Value",
+                    "field": "after"
+                },
+                {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "version"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "connector"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "name"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": false,
+                            "field": "ts_ms"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "name": "io.debezium.data.Enum",
+                            "version": 1,
+                            "parameters": {
+                                "allowed": "true,last,false,incremental"
+                            },
+                            "default": "false",
+                            "field": "snapshot"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "db"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "sequence"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "schema"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "table"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": true,
+                            "field": "txId"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": true,
+                            "field": "lsn"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": true,
+                            "field": "xmin"
+                        }
+                    ],
+                    "optional": false,
+                    "name": "io.debezium.connector.postgresql.Source",
+                    "field": "source"
+                },
+                {
+                    "type": "string",
+                    "optional": false,
+                    "field": "op"
+                },
+                {
+                    "type": "int64",
+                    "optional": true,
+                    "field": "ts_ms"
+                },
+                {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "id"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": false,
+                            "field": "total_order"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": false,
+                            "field": "data_collection_order"
+                        }
+                    ],
+                    "optional": true,
+                    "field": "transaction"
+                }
+            ],
+            "optional": false,
+            "name": "debeziumconn.public.person_identity.Envelope"
+        },
+        "payload": {
+            "before": null,
+            "after": {
+                "id": 2,
+                "login_date": 19306,
+                "first_name": "Your FN",
+                "last_name": "Your LN",
+                "address": "Bandung, IND",
+                "active": true
+            },
+            "source": {
+                "version": "1.8.1.Final",
+                "connector": "postgresql",
+                "name": "debeziumconn",
+                "ts_ms": 1669703019557,
+                "snapshot": "false",
+                "db": "debezium_db",
+                "sequence": "[\"23881912\",\"23882616\"]",
+                "schema": "public",
+                "table": "person_identity",
+                "txId": 493,
+                "lsn": 23882616,
+                "xmin": null
+            },
+            "op": "c",
+            "ts_ms": 1669703019660,
+            "transaction": null
+        }
+    },
+    {
+        "schema": {
+            "type": "struct",
+            "fields": [
+                {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "type": "int32",
+                            "optional": false,
+                            "default": 0,
+                            "field": "id"
+                        },
+                        {
+                            "type": "int32",
+                            "optional": true,
+                            "name": "io.debezium.time.Date",
+                            "version": 1,
+                            "field": "login_date"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "first_name"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "last_name"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "address"
+                        },
+                        {
+                            "type": "boolean",
+                            "optional": true,
+                            "field": "active"
+                        }
+                    ],
+                    "optional": true,
+                    "name": "debeziumconn.public.person_identity.Value",
+                    "field": "before"
+                },
+                {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "type": "int32",
+                            "optional": false,
+                            "default": 0,
+                            "field": "id"
+                        },
+                        {
+                            "type": "int32",
+                            "optional": true,
+                            "name": "io.debezium.time.Date",
+                            "version": 1,
+                            "field": "login_date"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "first_name"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "last_name"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "address"
+                        },
+                        {
+                            "type": "boolean",
+                            "optional": true,
+                            "field": "active"
+                        }
+                    ],
+                    "optional": true,
+                    "name": "debeziumconn.public.person_identity.Value",
+                    "field": "after"
+                },
+                {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "version"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "connector"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "name"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": false,
+                            "field": "ts_ms"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "name": "io.debezium.data.Enum",
+                            "version": 1,
+                            "parameters": {
+                                "allowed": "true,last,false,incremental"
+                            },
+                            "default": "false",
+                            "field": "snapshot"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "db"
+                        },
+                        {
+                            "type": "string",
+                            "optional": true,
+                            "field": "sequence"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "schema"
+                        },
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "table"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": true,
+                            "field": "txId"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": true,
+                            "field": "lsn"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": true,
+                            "field": "xmin"
+                        }
+                    ],
+                    "optional": false,
+                    "name": "io.debezium.connector.postgresql.Source",
+                    "field": "source"
+                },
+                {
+                    "type": "string",
+                    "optional": false,
+                    "field": "op"
+                },
+                {
+                    "type": "int64",
+                    "optional": true,
+                    "field": "ts_ms"
+                },
+                {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "type": "string",
+                            "optional": false,
+                            "field": "id"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": false,
+                            "field": "total_order"
+                        },
+                        {
+                            "type": "int64",
+                            "optional": false,
+                            "field": "data_collection_order"
+                        }
+                    ],
+                    "optional": true,
+                    "field": "transaction"
+                }
+            ],
+            "optional": false,
+            "name": "debeziumconn.public.person_identity.Envelope"
+        },
+        "payload": {
+            "before": {
+                "id": 15,
+                "login_date": 19306,
+                "first_name": "Your FN",
+                "last_name": "Your LN",
+                "address": "Bandung, IND",
+                "active": true
+            },
+            "after": {
+                "id": 15,
+                "login_date": 19306,
+                "first_name": "Your FN",
+                "last_name": "Your LN",
+                "address": "Jakarta, IND",
+                "active": true
+            },
+            "source": {
+                "version": "1.8.1.Final",
+                "connector": "postgresql",
+                "name": "debeziumconn",
+                "ts_ms": 1670339668359,
+                "snapshot": "false",
+                "db": "debezium_db",
+                "sequence": "['23894760','24006792']",
+                "schema": "public",
+                "table": "person_identity",
+                "txId": 506,
+                "lsn": 24006792,
+                "xmin": null
+            },
+            "op": "u",
+            "ts_ms": 1670339668362,
+            "transaction": null
+        }
+    }
+]

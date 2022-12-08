@@ -2,6 +2,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaConnector
 metadata:
   name: my-connector-dbz
+  namespace: my-kafka-project
   labels:
     strimzi.io/cluster: my-cluster-kafkaconnect-dbz
 spec:
@@ -18,7 +19,6 @@ spec:
     plugin.name: wal2json
     snapshot.mode: always
     poll.interval.ms: 100
-    tasks.max: 1
     table.include.list: person_identity
     # https://debezium.io/documentation/reference/1.7/transformations/outbox-event-router.html
     # transforms: outbox

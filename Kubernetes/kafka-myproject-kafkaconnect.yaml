@@ -1,42 +1,8 @@
-# apiVersion: kafka.strimzi.io/v1beta2
-# kind: KafkaConnect
-# metadata:
-#   name: my-cluster-kafkaconnect-dbz
-#   annotations:
-#     strimzi.io/use-connector-resources: "true"
-# spec:
-#   version: 3.2.3
-#   replicas: 1
-#   bootstrapServers: my-cluster-kafka-kafka-bootstrap:9092
-#   config:
-#     group.id: dbz-connect-cluster-1
-#     offset.storage.topic: dbz-connect-cluster-offsets-1
-#     config.storage.topic: dbz-connect-cluster-configs-1
-#     status.storage.topic: dbz-connect-cluster-status-1
-#     config.storage.replication.factor: 1
-#     offset.storage.replication.factor: 1
-#     status.storage.replication.factor: 1
-#   build:
-#     output:
-#       type: docker
-#       image: docker.io/arinannp/strimzi-dbz-postgres-connector:latest
-#       pushSecret: mydockercred
-#     plugins:
-#       - name: debezium-postgres-connector
-#         artifacts:
-#           - type: tgz
-#             url: https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.8.1.Final/debezium-connector-postgres-1.8.1.Final-plugin.tar.gz
-#             sha512sum: 96700F6DD19AED3A24A66BCD2DF456DE3CF952F50F9A5A99A371F15F216AB3B9185A6BFE22AC106E883347263A790DF595EA0B319AD72EE5E98210AE620F66A6
-#           - type: jar
-#             url: https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.24/postgresql-42.2.24.jar
-#             sha512sum: 4D1CE921291115A18518DCB81C5A9F3A9DDCB319F738C78A880AC939ECA15B447C54FFE6228E03A7950A684B1BEF3D55BF7DBCFEAF30E4FC2E647382E6813EB5
-
-# ---
-
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaConnect
 metadata:
   name: my-cluster-kafkaconnect-dbz
+  namespace: my-kafka-project
   annotations:
     strimzi.io/use-connector-resources: "true"
 spec:
