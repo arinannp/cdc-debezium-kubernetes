@@ -19,7 +19,7 @@ spec:
     plugin.name: wal2json
     snapshot.mode: always
     poll.interval.ms: 100
-    table.include.list: person_identity
+    table.include.list: public.person_identity
     # https://debezium.io/documentation/reference/1.7/transformations/outbox-event-router.html
     # transforms: outbox
     # transforms.outbox.type: io.debezium.transforms.outbox.EventRouter
@@ -28,10 +28,8 @@ spec:
     key.converter: org.apache.kafka.connect.json.JsonConverter
     key.converter.schemas.enable: false
     value.converter: io.debezium.converters.ByteBufferConverter
-    value.converter.schemas.enable: false
-    # value.converter.schemas.enable: true
+    value.converter.schemas.enable: true
     value.converter.delegate.converter.type: org.apache.kafka.connect.json.JsonConverter
-    value.converter.delegate.converter.type.schemas.enable: false
-    # alue.converter.delegate.converter.type.schemas.enable: true
+    value.converter.delegate.converter.type.schemas.enable: true
     database.history.kafka.bootstrap.servers: my-cluster-kafka-kafka-bootstrap:9092
     # database.history.kafka.topic: schema-changes.outbox

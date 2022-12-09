@@ -11,7 +11,7 @@ kubectl create -f strimzi-0.31.1/cluster-operator/031-RoleBinding-strimzi-cluste
 kubectl create -f strimzi-0.31.1/cluster-operator/ -n my-kafka-project
 
 kubectl apply -f kubernetes/kafka-myproject-kafkacluster.yaml
-kubectl wait kafka/my-cluster-kafka --for=condition=Ready --timeout=300s -n my-kafka-project
+kubectl wait kafka/my-cluster-kafka --for=condition=Ready --timeout=600s -n my-kafka-project
 
 
 # optional creating a kafka topic for testing purpose
@@ -26,19 +26,20 @@ kubectl apply -f kubernetes/kafka-myproject-kafkaconnect.yaml -n my-kafka-projec
 kubectl wait kafkaconnect/my-cluster-kafkaconnect-dbz --for=condition=Ready --timeout=300s -n my-kafka-project
 
 kubectl apply -f kubernetes/kafka-myproject-postgres.yaml -n my-postgres-project
-kubectl wait deployment/my-postgresdb --for=condition=Ready --timeout=300s -n my-postgres-project
+kubectl wait deployment/my-postgresdb --for=condition=Available=True --timeout=300s -n my-postgres-project
 
 kubectl apply -f kubernetes/kafka-myproject-debezium.yaml -n my-kafka-project
 kubectl wait kafkaconnector/my-connector-dbz --for=condition=Ready --timeout=300s -n my-kafka-project
 
 kubectl apply -f kubernetes/kafka-myproject-pythonkafka.yaml -n my-beam-project
-kubectl wait deployment/my-consumerbeam --for=condition=Ready --timeout=300s -n my-beam-project
+kubectl wait deployment/my-consumerbeam --for=condition=Available=True --timeout=300s -n my-beam-project
 
 
 # verify that the cdc process works
 kubectl get pod -n my-postgres-project
-kubectl exec -it my-postgresdb-yourhashpod -n my-postgres-project -- psql -U debezium -d debezium_db
+kubectl exec -it $(kubectl get pod -l app=postgresql -n my-postgres-project -o jsonpath="{.items[0].metadata.name}") -n my-postgres-project -- psql -U debezium -d debezium_db
 
 kubectl get pod -n my-beam-project
-kubectl exec -it my-beam-project-yourhashpod -n my-beam-project -- bin/sh
-kubectl logs -f my-beam-project-yourhashpod -n my-beam-project
+kubectl exec -it $(kubectl get pod -l app=beam-python -n my-beam-project -o jsonpath="{.items[0].metadata.name}") -n my-beam-project -- /bin/sh
+kubectl logs -f $(kubectl get pod -l app=beam-python -n my-beam-project -o jsonpath="{.items[0].metadata.name}") -n my-beam-project
+kubectl rollout restart deployment my-consumerbeam -n my-beam-project

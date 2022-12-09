@@ -13,8 +13,8 @@ kubectl run kafka-topiclist -it --image=strimzi/kafka:0.20.0-rc1-kafka-2.6.0 --r
 
 
 
-INSERT INTO person_identity (login_date, first_name, last_name, address, active) VALUES ('2022-11-10', 'Arinan', 'Najah', 'Semarang, IND', true);
-UPDATE person_identity SET active=false WHERE id=1
+INSERT INTO person_identity (login_date, first_name, last_name, address, active) VALUES ('2022-12-09', 'Arinan', 'Najah', 'Semarang, IND', true);
+UPDATE person_identity SET active=false WHERE id=1;
 
 Changes Data Capture
 PostgreSQL -> Debezium -> Kafka
