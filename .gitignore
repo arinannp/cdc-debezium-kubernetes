@@ -16,6 +16,9 @@ dataflow-template-timediffer-ap-1.py
 dataflow-template-timediffer-arb2c-1.py
 dataflow-template-timediffer-ap-2.py
 dataflow-template-timediffer-arb2c-2.py
+# kubernetes/kafka-myproject-kafkacluster-exporter.yaml
+# prometheus-0.31.1/
+# grafana-0.31.1/
 
 # Compiled Java class files
 *.class
